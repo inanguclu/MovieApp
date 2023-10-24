@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Movie } from "../movie";
 
 @Component({ 
     selector:'movies',
@@ -6,5 +7,16 @@ import { Component } from "@angular/core";
     styleUrls: ['movies.component.css']
     })
 export class MoviesComponent{
+    title='Movie List'
+
+    movie: Movie={
+        id: 1,
+        name:'Baslangıc'
+    }
+
+
+    getTitle(){
+        return this.title
+    }
 
 }
