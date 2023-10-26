@@ -17,6 +17,7 @@ export class MoviesComponent {
         this.selectedMovie = movie;
 
     }
+    
 
 
 }
