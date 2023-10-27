@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Movies } from "../movie.datasource"
+import { MovieService } from "../movie.service";
 import { Movie } from "../movie";
 
 @Component({
@@ -9,15 +9,36 @@ import { Movie } from "../movie";
 })
 export class MoviesComponent {
     title = 'Movie List'
-    movies = Movies;
+    movies: Movie[] = [];
+
+
     selectedMovie: Movie = new Movie();
+
+
+    constructor(private movieService: MovieService) {
+
+
+    }
+
+    ngOnInit(): void {
+        this.getMovies();
+    }
 
 
     onSelect(movie: Movie): void {
         this.selectedMovie = movie;
 
     }
-    
+
+    getMovies(): void {
+        this.movieService.getMovies()
+            .subscribe(movies => {
+                this.movies = movies;
+            });
+
+
+    }
+
 
 
 }
